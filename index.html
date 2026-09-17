@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paul Juralowicz — Biomedical Engineer</title>
+<meta name="description" content="Portfolio of Paul Juralowicz, EiT — implantable devices, microfabrication, and medical device design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F2F3F1;
+    --surface: #FFFFFF;
+    --ink: #14171A;
+    --muted: #5B6570;
+    --line: #D9DCDA;
+    --accent: #1F6F8B;
+    --accent-ink: #14505F;
+    --accent2: #B4472A;
+    --radius: 3px;
+    --measure: 66ch;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection{ background: var(--accent); color: #fff; }
+
+  a{ color: var(--accent-ink); text-decoration-color: rgba(31,111,139,0.35); text-underline-offset: 3px; }
+  a:hover{ text-decoration-color: currentColor; }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .mono{ font-family: "IBM Plex Mono", ui-monospace, monospace; }
+
+  .wrap{
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- top nav ---------- */
+  .topnav{
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(242,243,241,0.88);
+    backdrop-filter: saturate(140%) blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topnav .wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+  }
+  .topnav .brand{
+    font-family: "IBM Plex Mono";
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .topnav .brand:hover{ color: var(--accent-ink); }
+  .topnav nav{ display: flex; gap: 22px; }
+  .topnav nav a{
+    font-family: "IBM Plex Mono";
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .topnav nav a:hover{ color: var(--ink); }
+  @media (max-width: 560px){
+    .topnav nav{ gap: 14px; }
+    .topnav nav a{ font-size: 12px; }
+  }
+
+  /* ---------- hero ---------- */
+  .hero{ padding: 64px 0 40px; }
+  .hero h1{
+    margin: 0 0 6px;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+  }
+  .hero .role{
+    font-family: "IBM Plex Mono";
+    color: var(--accent-ink);
+    font-size: 15px;
+    margin: 0 0 24px;
+  }
+  .hero .summary{
+    max-width: var(--measure);
+    color: var(--ink);
+    font-size: 1.08rem;
+  }
+  .contact-line{
+    margin-top: 26px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    font-family: "IBM Plex Mono";
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+  .contact-line a{ color: var(--muted); }
+  .contact-line a:hover{ color: var(--accent-ink); }
+  .contact-line span.sep{ color: var(--line); }
+
+  hr.rule{
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 40px 0;
+  }
+
+  /* ---------- capabilities strip ---------- */
+  .capabilities{ padding: 6px 0 44px; }
+  .cap-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 26px;
+  }
+  @media (max-width: 760px){
+    .cap-grid{ grid-template-columns: repeat(2, 1fr); }
+  }
+  .cap-col h3{
+    font-family: "IBM Plex Mono";
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  .tags{ display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag{
+    font-family: "IBM Plex Mono";
+    font-size: 11.5px;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 3px 7px;
+    background: var(--surface);
+    line-height: 1.4;
+  }
+
+  /* ---------- section headers ---------- */
+  .section-head{
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .section-head .idx{
+    font-family: "IBM Plex Mono";
+    font-size: 13px;
+    color: var(--accent2);
+  }
+  .section-head h2{
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  /* ---------- timeline ---------- */
+  .timeline{
+    position: relative;
+    padding: 20px 0 10px;
+  }
+  .timeline-rule{
+    position: absolute;
+    left: 7px;
+    top: 6px;
+    bottom: 6px;
+    width: 1px;
+    background: var(--line);
+  }
+  @media (max-width: 640px){
+    .timeline-rule{ left: 5px; }
+  }
+
+  .project{
+    position: relative;
+    padding-left: 34px;
+    margin-bottom: 74px;
+  }
+  .project:last-child{ margin-bottom: 0; }
+  .project::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 2px solid var(--accent);
+  }
+  @media (max-width: 640px){
+    .project{ padding-left: 26px; }
+    .project::before{ width: 11px; height: 11px; left: 0; top: 5px; }
+  }
+
+  .project .date{
+    font-family: "IBM Plex Mono";
+    font-size: 13px;
+    color: var(--accent2);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .project h3{
+    margin: 0 0 16px;
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.25;
+    max-width: 30ch;
+  }
+
+  .project .lede-image{
+    width: 100%;
+    border-radius: var(--radius);
+    display: block;
+    margin-bottom: 8px;
+    border: 1px solid var(--line);
+  }
+  figure{ margin: 0; }
+  figcaption{
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 8px;
+    line-height: 1.45;
+  }
+  .lede-figure{ margin-bottom: 28px; }
+
+  .gallery{
+    columns: 2;
+    column-gap: 18px;
+    margin-bottom: 28px;
+  }
+  .gallery figure{
+    break-inside: avoid;
+    margin-bottom: 18px;
+  }
+  .gallery img{
+    width: 100%;
+    display: block;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+  }
+  @media (max-width: 560px){
+    .gallery{ columns: 1; }
+  }
+
+  .project p{
+    max-width: var(--measure);
+    color: var(--ink);
+  }
+  .project p + p{ margin-top: 14px; }
+
+  .skills-line{
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px dashed var(--line);
+  }
+  .skills-line .label{
+    font-family: "IBM Plex Mono";
+    font-size: 11.5px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  /* ---------- education / awards ---------- */
+  .record-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 34px;
+  }
+  @media (max-width: 700px){
+    .record-grid{ grid-template-columns: 1fr; }
+  }
+  .record h3{
+    font-family: "IBM Plex Mono";
+    font-size: 12.5px;
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+  .degree{ margin-bottom: 16px; }
+  .degree .name{ font-weight: 600; }
+  .degree .school{ color: var(--muted); font-size: 14.5px; }
+  .degree .meta{ font-family: "IBM Plex Mono"; font-size: 12.5px; color: var(--accent2); margin-top: 2px; }
+  .award-list{ margin: 0; padding: 0; list-style: none; }
+  .award-list li{
+    padding: 9px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 15px;
+  }
+  .award-list li:last-child{ border-bottom: none; }
+  .award-list .amt{ font-family: "IBM Plex Mono"; color: var(--accent-ink); font-size: 13px; }
+
+  /* ---------- beyond the lab ---------- */
+  .beyond{ padding-top: 6px; }
+  .beyond-intro{ max-width: var(--measure); color: var(--muted); margin-bottom: 30px; }
+  .hobby-gallery{
+    columns: 3;
+    column-gap: 18px;
+  }
+  .hobby-gallery figure{ break-inside: avoid; margin-bottom: 18px; }
+  .hobby-gallery img{
+    width: 100%;
+    display: block;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+  }
+  @media (max-width: 700px){
+    .hobby-gallery{ columns: 2; }
+  }
+  @media (max-width: 460px){
+    .hobby-gallery{ columns: 1; }
+  }
+
+  section{ padding: 56px 0; }
+  section#work{ padding-top: 10px; }
+
+  footer{
+    border-top: 1px solid var(--line);
+    padding: 40px 0 60px;
+    margin-top: 20px;
+  }
+  footer .contact-line{ margin-top: 0; }
+  footer .fineprint{
+    margin-top: 22px;
+    font-family: "IBM Plex Mono";
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <div class="wrap">
+    <a class="brand" href="#top">P. Juralowicz</a>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#education">Education</a>
+      <a href="#beyond">Beyond the lab</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<div id="top" class="wrap">
+
+  <section class="hero">
+    <h1>Paul Juralowicz</h1>
+    <p class="role">Biomedical Engineer, EiT — implantable devices &amp; microfabrication</p>
+    <p class="summary">I design medical devices that have to work inside a body — implants, sensors, and the fabrication processes that make them real. My recent work has centred on spinal cord injury: a flexible microelectrode stimulator and a light-activated hydrogel scaffold, both built from the ground up in the cleanroom and tested through to live animal studies. Before that, I led student teams building payloads for sounding rockets and a wearable that detects opioid overdose from a single breath.</p>
+    <div class="contact-line">
+      <a href="tel:+12507133368">+1 (250) 713-3368</a>
+      <span class="sep">/</span>
+      <a href="mailto:pauljuralowicz@gmail.com">pauljuralowicz@gmail.com</a>
+      <span class="sep">/</span>
+      <a href="https://www.linkedin.com/in/paul-juralowicz-2a01a3155/" target="_blank" rel="noopener">LinkedIn</a>
+      <span class="sep">/</span>
+      <a href="https://www.researchgate.net/profile/Paul-Juralowicz" target="_blank" rel="noopener">ResearchGate</a>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="capabilities">
+    <div class="cap-grid">
+      <div class="cap-col">
+        <h3>Fabrication</h3>
+        <div class="tags">
+          <span class="tag">e-beam deposition</span>
+          <span class="tag">photolithography</span>
+          <span class="tag">wet/dry etching</span>
+          <span class="tag">PCB design</span>
+          <span class="tag">PDMS molding</span>
+          <span class="tag">CNC / laser cutting</span>
+          <span class="tag">3D printing</span>
+        </div>
+      </div>
+      <div class="cap-col">
+        <h3>Programming &amp; analysis</h3>
+        <div class="tags">
+          <span class="tag">MATLAB</span>
+          <span class="tag">Python</span>
+          <span class="tag">R</span>
+          <span class="tag">C / C++ / C#</span>
+          <span class="tag">signal processing</span>
+          <span class="tag">machine learning</span>
+          <span class="tag">Monte Carlo sim</span>
+        </div>
+      </div>
+      <div class="cap-col">
+        <h3>Instrumentation</h3>
+        <div class="tags">
+          <span class="tag">EEG / EMG / ECG</span>
+          <span class="tag">pulse oximetry</span>
+          <span class="tag">ultrasound</span>
+          <span class="tag">oscilloscopes</span>
+          <span class="tag">microcontrollers</span>
+          <span class="tag">SEM</span>
+        </div>
+      </div>
+      <div class="cap-col">
+        <h3>Design tools</h3>
+        <div class="tags">
+          <span class="tag">SolidWorks</span>
+          <span class="tag">Fusion 360</span>
+          <span class="tag">EAGLE</span>
+          <span class="tag">Zemax OpticStudio</span>
+          <span class="tag">3D Slicer</span>
+          <span class="tag">Git / GitHub</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="section-head">
+      <span class="idx mono">01</span>
+      <h2>Selected projects, in reverse chronological order</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-rule"></div>
+
+      <article class="project">
+        <span class="date mono">Sep 2022 – Nov 2025</span>
+        <h3>Flexible ventral stimulator for spinal cord injury repair</h3>
+
+        <figure class="lede-figure">
+          <img class="lede-image" src="images/stimulator-implantation.jpg" alt="Illustration of the implantation of the stimulator device.">
+          <figcaption>Illustration of the implantation of the stimulator device.</figcaption>
+        </figure>
+
+        <div class="gallery">
+          <figure>
+            <img src="images/stimulator-schematic.jpg" alt="Schematic of the stimulator device and the actualized implant.">
+            <figcaption>Schematic of the stimulator device (A) and the actualized implant (B).</figcaption>
+          </figure>
+          <figure>
+            <img src="images/stimulator-manufacturing.jpg" alt="Cleanroom manufacturing of the stimulator.">
+            <figcaption>Manufacturing method. A clean room environment is essential for a device this small.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/stimulator-wafer.jpg" alt="Devices on a silicon wafer, including outreach designs.">
+            <figcaption>Devices on a foundational silicon wafer. The larger "K" and "H" designs came from an outreach event I led, where high-school students designed and helped fabricate their own microfabricated art piece.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/stimulator-emg-response.jpg" alt="Graph of measured animal muscle response due to stimulation.">
+            <figcaption>Measured animal muscle response to stimulation. A video of the muscle impulse is available on request.</figcaption>
+          </figure>
+        </div>
+
+        <p>My most recent project was an implant designed to treat spinal cord injury. Injury leaves a fluid-filled lesion at the site, severing neurons that once spanned the region. Those damaged neurons are slow to recover on their own, and electrical stimulation is one way to encourage regeneration — but it only works if it's delivered exactly where it's needed. In rats and humans alike, the ventral side of the spinal cord carries the circuitry for lower-limb movement, so stimulating that region can produce real restorative effects. It's also one of the hardest places to reach, requiring a delicate surgery and an equally delicate device.</p>
+
+        <div class="skills-line">
+          <span class="label mono">KEY SKILLS</span>
+          <div class="tags">
+            <span class="tag">MEMS manufacturing</span>
+            <span class="tag">MEMS design</span>
+            <span class="tag">surgical design</span>
+            <span class="tag">implant design</span>
+            <span class="tag">electrical design</span>
+            <span class="tag">mechanical design</span>
+            <span class="tag">systems engineering</span>
+            <span class="tag">V&amp;V testing</span>
+            <span class="tag">clinician consultation</span>
+            <span class="tag">patient consultation</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <span class="date mono">Sep 2022 – Nov 2025</span>
+        <h3>Light-sensitive hydrogel for spinal cord injury repair</h3>
+
+        <div class="gallery">
+          <figure>
+            <img src="images/hydrogel-illumination.jpg" alt="Illustration of the proposed method of hydrogel illumination.">
+            <figcaption>Illustration of the proposed method of hydrogel illumination.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hydrogel-sample-prep.jpg" alt="Sample preparation method for characterizing the hydrogel's optical properties.">
+            <figcaption>Sample preparation method, used to experimentally characterize the optical properties of our hydrogel system.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/hydrogel-montecarlo.jpg" alt="Monte Carlo simulation outputs for external, subdural, and fiber optic illumination.">
+            <figcaption>Example outputs of the Monte Carlo simulation for external (A), subdural (B), and fiber-optic (C) illumination.</figcaption>
+          </figure>
+        </div>
+
+        <p>Alongside the stimulator work, I helped develop an injectable hydrogel for spinal cord injury. Injured neurons aren't just lethargic — they're picky about what they grow through, and a fluid-filled lesion offers no structure at all. The proposed fix is to inject a hydrogel that solidifies inside the lesion, giving neurons a scaffold to regenerate along. Our lab chose a blue-light-sensitive gel specifically because it allows finer control over solidification during surgery, unlike typical enzymatic gels that start setting the moment they're mixed — putting real time pressure on the surgeon.</p>
+        <p>My job was to find the best way to expose the gel for uniform solidification throughout the injury site. I measured the gel's optical properties, built Monte Carlo simulation software to model different exposure setups, and verified the results against the surgical procedure used in rat studies.</p>
+
+        <div class="skills-line">
+          <span class="label mono">KEY SKILLS</span>
+          <div class="tags">
+            <span class="tag">optical design</span>
+            <span class="tag">light–tissue interaction</span>
+            <span class="tag">experimental design</span>
+            <span class="tag">programming</span>
+            <span class="tag">clinician consultation</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <span class="date mono">Sep 2020 – Aug 2022</span>
+        <h3>Microbial fuel cell payload for experimental rocketry competitions</h3>
+
+        <div class="gallery">
+          <figure>
+            <img src="images/fuelcell-single.jpg" alt="An individual fuel cell for the CAN RGX payload.">
+            <figcaption>An individual fuel cell for the CAN RGX payload.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/fuelcell-cubesat.jpg" alt="The 3-unit CubeSat format for the experiment.">
+            <figcaption>The 3-unit CubeSat format for the experiment — a 10 × 10 cm frame that survived a supersonic rocket launch.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/fuelcell-pelican-case.jpg" alt="The pelican case which the CAN RGX experiment was placed in.">
+            <figcaption>The pelican case housing the CAN RGX experiment.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/fuelcell-four-cells.jpg" alt="Four fuel cells for the CAN RGX competition.">
+            <figcaption>Four fuel cells for the CAN RGX competition.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/fuelcell-membrane-damage.jpg" alt="The membrane separating the cathode and anode after several Gs of acceleration and a crash landing.">
+            <figcaption>The cost of several Gs of acceleration and a crash landing: the membrane separating cathode and anode has gone hemispherical near its center.</figcaption>
+          </figure>
+        </div>
+
+        <p>I led a student team building a payload for two very different competitions: the Canadian Reduced Gravity Experiment Design Challenge (CAN RGX), flown on a parabolic flight that simulates microgravity, and the International Rocketry Engineering Competition (IREC), where a sounding rocket delivers a 3-unit CubeSat payload. Each imposed its own design constraints, so we ended up building two distinct versions of the same idea.</p>
+        <p>That idea was a microbial fuel cell — a bacteria-powered battery. It sounds unrelated to space travel, but there are real applications: wastewater treatment and methane production, where methane can double as rocket propellant. Doing useful work while generating power is hard to argue with.</p>
+        <p>As lead, I handled the administrative and mentoring side, but I was also the systems integrator and, as the only biologist on the team, the biological lead. Electrical, mechanical, and biological design all had to work together — my first real introduction to systems engineering, and probably why I enjoyed the systems work on the stimulator so much later on. This project also ran through the pandemic; despite the toll that took, I managed to keep the team together.</p>
+
+        <div class="skills-line">
+          <span class="label mono">KEY SKILLS</span>
+          <div class="tags">
+            <span class="tag">systems engineering</span>
+            <span class="tag">team management</span>
+            <span class="tag">project management</span>
+            <span class="tag">biological design</span>
+            <span class="tag">design for manufacturing</span>
+            <span class="tag">signal processing</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <span class="date mono">Sep 2021 – May 2022</span>
+        <h3>Opioid overdose detection and reversal device</h3>
+
+        <div class="gallery">
+          <figure>
+            <img src="images/opioid-prototype.jpg" alt="The first prototype of the chest strap.">
+            <figcaption>The first prototype of the chest strap.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/opioid-render.jpg" alt="Render of the final chest strap design, showing the strain gauge and button/buzzer.">
+            <figcaption>Render of the final chest strap design. The enclosed box holds the strain gauge, plus a button and buzzer to check patient arousal.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/opioid-wearing-device.jpg" alt="Paul wearing the final device.">
+            <figcaption>A younger, and perhaps happier, Paul wearing the final device.</figcaption>
+          </figure>
+        </div>
+
+        <p>As my capstone project, I led a team designing a device to detect and reverse opioid overdose. I designed and built the detection half: a chest strap that tracks breathing rate, since overdose kills by stopping respiration — so measuring breath directly seemed like the most direct signal to act on.</p>
+        <p>The strap itself is spandex fitted with a strain gauge. As the chest expands with each breath, the spandex stretches and the gauge picks up the tension. Once filtered — electronically through the circuitry, then digitally on the Arduino — the result is a clean readout of a person's breathing, with rate found from the peak-to-peak timing of the signal.</p>
+        <p>A device like this only works if it fits everyone, so I tested it at a capstone conference at UBC, inviting students, professors, and guests to strap it on and just breathe. It worked on every body type in the room, including through thick winter jackets — the strap buckles on in seconds, like a seatbelt, which matters just as much as the sensing itself if anyone's actually going to wear it.</p>
+
+        <div class="skills-line">
+          <span class="label mono">KEY SKILLS</span>
+          <div class="tags">
+            <span class="tag">team management</span>
+            <span class="tag">project management</span>
+            <span class="tag">biological design</span>
+            <span class="tag">signal processing</span>
+            <span class="tag">clinician consultation</span>
+            <span class="tag">mechanical design</span>
+            <span class="tag">adherence</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="education">
+    <div class="section-head">
+      <span class="idx mono">02</span>
+      <h2>Education &amp; recognition</h2>
+    </div>
+    <div class="record-grid">
+      <div class="record">
+        <h3>DEGREES</h3>
+        <div class="degree">
+          <div class="name">M.A.Sc, Biomedical Engineering</div>
+          <div class="school">University of British Columbia</div>
+          <div class="meta">Sep 2022 – Nov 2025 · 4.0 GPA, Dean's Honour List</div>
+        </div>
+        <div class="degree">
+          <div class="name">B.A.Sc, Biomedical Engineering</div>
+          <div class="school">University of British Columbia</div>
+          <div class="meta">Sep 2018 – May 2022 · 4.0 GPA, Dean's Honour List</div>
+        </div>
+      </div>
+      <div class="record">
+        <h3>AWARDS &amp; SCHOLARSHIPS</h3>
+        <ul class="award-list">
+          <li>President's Academic Excellence Initiative PhD Award <span class="amt">$15,000</span></li>
+          <li>Faculty of Applied Science Graduate Award <span class="amt">$90,000</span></li>
+          <li>Trek Excellence Scholarship <span class="amt">$7,000</span></li>
+          <li>Dean's Honour List <span class="amt">2018–2025</span></li>
+          <li>SBME Research Day Poster Competition <span class="amt">2nd place</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section id="beyond" class="beyond">
+    <div class="section-head">
+      <span class="idx mono">03</span>
+      <h2>Beyond the lab</h2>
+    </div>
+    <p class="beyond-intro">This section can be safely ignored — it's just a bit more about me. I bake (mostly my grandma's Polish recipes) and cook, climb, shoot film on cameras older than I am, and occasionally lose at board games.</p>
+
+    <div class="hobby-gallery">
+      <figure>
+        <img src="images/hobby-climbing.jpg" alt="Paul rock climbing at Seal Cove.">
+        <figcaption>Rock climbing at Seal Cove, about 30 minutes from Horseshoe Bay. I'd like to climb outdoors more — most of my climbing so far has been in gyms.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/hobby-szarlotka.jpg" alt="Homemade Polish apple pie, szarlotka.">
+        <figcaption>Szarlotka — Polish apple pie, made from my grandma's recipe.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/hobby-spaghetti.jpg" alt="Homemade spaghetti and meatballs.">
+        <figcaption>Spaghetti and meatballs, homemade red sauce and meatballs. I evidently need to pay more attention to the garlic bread while it's under the broiler.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/hobby-photo-1.jpg" alt="Film photograph, shot on a pre-2010s camera.">
+        <figcaption>I've recently gotten into photography — specifically on pre-2010s cameras, out of nostalgia for the technology behind the old photos of me in my parents' albums. I swear I'm not a hipster.</figcaption>
+      </figure>
+      <figure>
+        <img src="images/hobby-photo-2.jpg" alt="Film photograph, shot on a pre-2010s camera.">
+      </figure>
+      <figure>
+        <img src="images/hobby-photo-3.jpg" alt="Film photograph, shot on a pre-2010s camera.">
+      </figure>
+      <figure>
+        <img src="images/hobby-boardgame.jpg" alt="A board game, Wingspan.">
+        <figcaption>I like board games — though not, in fact, Wingspan. This was the only photo I had of a board game and I couldn't find a better one. Oops.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="section-head">
+      <span class="idx mono">04</span>
+      <h2>Get in touch</h2>
+    </div>
+    <div class="contact-line">
+      <a href="tel:+12507133368">+1 (250) 713-3368</a>
+      <span class="sep">/</span>
+      <a href="mailto:pauljuralowicz@gmail.com">pauljuralowicz@gmail.com</a>
+      <span class="sep">/</span>
+      <a href="https://www.linkedin.com/in/paul-juralowicz-2a01a3155/" target="_blank" rel="noopener">LinkedIn</a>
+      <span class="sep">/</span>
+      <a href="https://www.researchgate.net/profile/Paul-Juralowicz" target="_blank" rel="noopener">ResearchGate</a>
+    </div>
+    <p class="fineprint">© 2026 Paul Juralowicz</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
